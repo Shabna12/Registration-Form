@@ -132,6 +132,9 @@ function App() {
     alert("Upload Completed !!")
   }
 
+  // form incomplete
+  const isFormIncomplete = !gender || !selectedDate || !Course ;
+
   const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false)
@@ -152,7 +155,7 @@ function App() {
   }
 
   return (
-    <div style={{minHeight:'100vh',width:'100%'}} className='d-flex justify-content-center align-items-center bg-dark p-5'>
+    <div style={{minHeight:'100vh',width:'100%',maxWidth:'100%'}} className='d-flex justify-content-center align-items-center bg-dark p-5'>
       <div style={{width:'800px'}} className="bg-info p-3 rounded">
         <div className='top'>
           <img style={{width:'200px'}} src={startimg} alt="" />
@@ -230,7 +233,7 @@ function App() {
           </div>
           {/* buttons */}
           <Stack direction="column" spacing={2} className="mt-3">
-            <Button disabled={isAddressInvalid || isEmailInvalid || isFullnameInvalid || isMobileNumberInvalid} className="rounded-5 p-2 fw-bolder ms-3 mt-4"  type="button" onClick={handleShow} variant="success" size="lg">Register</Button>
+            <Button disabled={isAddressInvalid || isEmailInvalid || isFullnameInvalid || isMobileNumberInvalid || isFormIncomplete} className="rounded-5 p-2 fw-bolder ms-3 mt-4"  type="button" onClick={handleShow} variant="success" size="lg">Register</Button>
             <Button className="bg-danger rounded-5 p-2 fw-bolder ms-3 mt-4"  onClick={handleReset}  size="lg">RESET</Button>
          </Stack>
         </form>
